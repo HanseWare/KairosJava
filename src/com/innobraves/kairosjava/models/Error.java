@@ -151,4 +151,14 @@ public enum Error {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return "Error{\n" +
+                "httpCode:\t" + httpCode + "\n" +
+                "errorCode:\t" + errorCode + "\n" +
+                "message:\t'" + message + '\'' + "\n" +
+                "description:\t'" + description + '\'' + "\n" +
+                '}';
+    }
 }
