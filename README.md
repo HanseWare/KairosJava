@@ -5,6 +5,6 @@ This library offers a Java wrapper for Kairos Recognition Api. The biggest diffe
 - Synchronous Http Client
 - Full parsing and OO representation of the incoming results
 - Supports latest Api changes mentioned in the Kairos changelog, even if not represented in api docs
-    - @Kairos PLEASE keep your documentation, examples and Api blueprint consistent and up to date!
+    - @Kairos PLEASE keep your api, documentation, examples and Api blueprint consistent and up to date!
 
 If I got time I'll add the Emotions Api later, but for now there is already one available, you can find in repositories of kairosinc.

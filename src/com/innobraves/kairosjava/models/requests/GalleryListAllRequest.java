@@ -1,6 +1,8 @@
 package com.innobraves.kairosjava.models.requests;
 
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.entity.BasicHttpEntity;
 
 /**
  * @author Hex-3-En
@@ -9,6 +11,8 @@ import org.apache.http.client.methods.HttpRequestBase;
 public class GalleryListAllRequest extends Request {
     @Override
     public HttpRequestBase getRequest() {
-        return null;
+        HttpPost request = new HttpPost(Request.BASE_URL + "/gallery/list_all");
+        request.setEntity(new BasicHttpEntity());
+        return request;
     }
 }
