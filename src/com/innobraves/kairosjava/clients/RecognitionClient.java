@@ -64,7 +64,7 @@ public class RecognitionClient implements Recognition {
     }
 
     @Override
-    public GalleryRemoveResult galleryRemoveAll(GalleryRemoveRequest galleryRemoveRequest) {
+    public GalleryRemoveResult galleryRemove(GalleryRemoveRequest galleryRemoveRequest) {
         try{
             HttpRequestBase req = galleryRemoveRequest.getRequest();
             req.setHeaders(this.headers);

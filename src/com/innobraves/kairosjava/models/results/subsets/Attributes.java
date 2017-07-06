@@ -68,4 +68,19 @@ public class Attributes {
         att.glasses = raw.getJsonString("glasses").getString();
         return att;
     }
+
+    @Override
+    public String toString() {
+        return "Attributes{\n" +
+                "lips:\t'" + lips + '\'' + "\n" +
+                "asian:\t" + asian + "\n" +
+                "gender:\t" + gender + "\n" +
+                "age:\t" + age + "\n" +
+                "hispanic:\t" + hispanic + "\n" +
+                "other:\t" + other + "\n" +
+                "black:\t" + black + "\n" +
+                "white:\t" + white + "\n" +
+                "glasses:\t'" + glasses + '\'' + "\n" +
+                '}';
+    }
 }

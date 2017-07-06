@@ -86,4 +86,22 @@ public class Transaction {
         trans.faceId = raw.getJsonNumber("face_id").intValue();
         return trans;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{\n" +
+                "success:\t" + success + "\n" +
+                "topLeftX:\t" + topLeftX + "\n" +
+                "topLeftY:\t" + topLeftY + "\n" +
+                "galleryName:\t'" + galleryName + '\'' + "\n" +
+                "timestamp:\t" + timestamp + "\n" +
+                "height:\t" + height + "\n" +
+                "width:\t" + width + "\n" +
+                "quality:\t" + quality + "\n" +
+                "confidence:\t" + confidence + "\n" +
+                "subjectId:\t'" + subjectId + '\'' + "\n" +
+                "eyeDistance:\t" + eyeDistance + "\n" +
+                "faceId:\t" + faceId + "\n" +
+                '}';
+    }
 }

@@ -116,4 +116,28 @@ public class Face {
         face.attributes = Attributes.create(raw.getJsonObject("attributes"));
         return face;
     }
+
+
+    @Override
+    public String toString() {
+        return "Face{\n" +
+                "topLeftX:\t" + topLeftX + "\n" +
+                "topLeftY:\t" + topLeftY + "\n" +
+                "chinTipX:\t" + chinTipX + "\n" +
+                "chinTipY:\t" + chinTipY + "\n" +
+                "leftEyeCenterX:\t" + leftEyeCenterX + "\n" +
+                "leftEyeCenterY:\t" + leftEyeCenterY + "\n" +
+                "rightEyeCenterX:\t" + rightEyeCenterX + "\n" +
+                "rightEyeCenterY:\t" + rightEyeCenterY + "\n" +
+                "yaw:\t" + yaw + "\n" +
+                "pitch:\t" + pitch + "\n" +
+                "roll:\t" + roll + "\n" +
+                "height:\t" + height + "\n" +
+                "width:\t" + width + "\n" +
+                "quality:\t" + quality + "\n" +
+                "confidence:\t" + confidence + "\n" +
+                "faceId:\t" + faceId + "\n" +
+                "attributes:\t" + attributes + "\n" +
+                '}';
+    }
 }

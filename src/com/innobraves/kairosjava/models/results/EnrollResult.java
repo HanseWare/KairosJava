@@ -1,23 +1,63 @@
 package com.innobraves.kairosjava.models.results;
 
 import com.innobraves.kairosjava.models.Error;
+import com.innobraves.kairosjava.models.Errors;
+import com.innobraves.kairosjava.models.results.subsets.EnrolledImage;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Hex-3-En
  * @version 0.0.1
  */
 public class EnrollResult extends Result{
+    private String faceId;
+    private List<EnrolledImage> enrolledImages;
+
     public EnrollResult(Error error) {
         super(error);
     }
 
-    public EnrollResult(HttpResponse response) {
+    public EnrollResult(HttpResponse response) throws IOException {
         super(response);
     }
 
-    @Override
-    void parseResponse(HttpResponse response) {
+    public String getFaceId() {
+        return faceId;
+    }
 
+    public List<EnrolledImage> getEnrolledImages() {
+        return enrolledImages;
+    }
+
+    @Override
+    void parseResponse(HttpResponse response) throws IOException {
+        HttpEntity entity = response.getEntity();
+        if (entity == null) {
+            this.setError(Error.ERR_9000);
+            return;
+        }
+        JsonObject responseObject = Json.createReader(entity.getContent()).readObject();
+        if (responseObject.containsKey("Errors")) {
+            this.setError(Errors.INSTANCE.getError(responseObject.getJsonArray("Errors").getJsonObject(0).getJsonNumber("ErrCode").intValue()));
+            return;
+        }
+        this.enrolledImages = new LinkedList<>();
+        this.faceId = responseObject.getJsonString("face_id").getString();
+        responseObject.getJsonArray("images").getValuesAs(JsonObject.class).forEach(o -> this.enrolledImages.add(EnrolledImage.create(o)));
+    }
+
+    @Override
+    public String toString() {
+        return "EnrollResult{\n" +
+                "faceId:\t'" + faceId + '\'' + "\n" +
+                "enrolledImages:\t" + enrolledImages + "\n" +
+                '}';
     }
 }

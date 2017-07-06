@@ -11,7 +11,7 @@ public interface Recognition {
     DetectResult detect(DetectRequest detectRequest);
     EnrollResult enroll(EnrollRequest enrollRequest);
     GalleryListAllResult galleryListAll(GalleryListAllRequest galleryListAllRequest);
-    GalleryRemoveResult galleryRemoveAll(GalleryRemoveRequest galleryRemoveRequest);
+    GalleryRemoveResult galleryRemove(GalleryRemoveRequest galleryRemoveRequest);
     GalleryRemoveSubjectResult galleryRemoveSubject(GalleryRemoveSubjectRequest galleryRemoveSubjectRequest);
     GalleryViewResult galleryView(GalleryViewRequest galleryViewRequest);
     GalleryViewSubjectResult galleryViewSubject(GalleryViewSubjectRequest galleryViewSubjectRequest);

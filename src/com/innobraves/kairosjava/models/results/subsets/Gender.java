@@ -32,4 +32,13 @@ public class Gender {
         gender.femaleConfidence = raw.getJsonNumber("femaleConfidence").doubleValue();
         return gender;
     }
+
+    @Override
+    public String toString() {
+        return "Gender{\n" +
+                "type:\t'" + type + '\'' + "\n" +
+                "maleConfidence:\t" + maleConfidence + "\n" +
+                "femaleConfidence:\t" + femaleConfidence + "\n" +
+                '}';
+    }
 }
