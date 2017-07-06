@@ -1,7 +1,6 @@
 package com.innobraves.kairosjava.models.results;
 
 import com.innobraves.kairosjava.models.Error;
-import com.innobraves.kairosjava.models.Errors;
 import com.innobraves.kairosjava.models.results.subsets.EnrolledImage;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -45,7 +44,7 @@ public class EnrollResult extends Result{
         }
         JsonObject responseObject = Json.createReader(entity.getContent()).readObject();
         if (responseObject.containsKey("Errors")) {
-            this.setError(Errors.INSTANCE.getError(responseObject.getJsonArray("Errors").getJsonObject(0).getJsonNumber("ErrCode").intValue()));
+            this.setError(Error.getByErrCode(responseObject.getJsonArray("Errors").getJsonObject(0).getJsonNumber("ErrCode").intValue()));
             return;
         }
         this.enrolledImages = new LinkedList<>();

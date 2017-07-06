@@ -1,8 +1,5 @@
 package com.innobraves.kairosjava.models;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Hex-3-En
  * @version 0.0.1
@@ -133,7 +130,6 @@ public enum Error {
         this.httpCode = httpCode;
         this.message = message;
         this.description = description;
-        Errors.INSTANCE.add(errorCode, this);
     }
 
     public int getHttpCode() {
@@ -160,5 +156,19 @@ public enum Error {
                 "message:\t'" + message + '\'' + "\n" +
                 "description:\t'" + description + '\'' + "\n" +
                 '}';
+    }
+
+    public static Error getByErrCode(int errCode){
+        for(Error e : Error.values()){
+            if(e.errorCode == errCode)return e;
+        }
+        return null;
+    }
+
+    public static Error getByHttpCode(int httpCode){
+        for(Error e : Error.values()){
+            if(e.httpCode == httpCode)return e;
+        }
+        return null;
     }
 }

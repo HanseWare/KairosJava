@@ -1,7 +1,6 @@
 package com.innobraves.kairosjava.models.results;
 
 import com.innobraves.kairosjava.models.Error;
-import com.innobraves.kairosjava.models.Errors;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 
@@ -42,7 +41,7 @@ public class GalleryRemoveResult extends Result{
         }
         JsonObject responseObject = Json.createReader(entity.getContent()).readObject();
         if (responseObject.containsKey("Errors")) {
-            this.setError(Errors.INSTANCE.getError(responseObject.getJsonArray("Errors").getJsonObject(0).getJsonNumber("ErrCode").intValue()));
+            this.setError(Error.getByErrCode(responseObject.getJsonArray("Errors").getJsonObject(0).getJsonNumber("ErrCode").bigDecimalValue().intValue()));
             return;
         }
         this.status = responseObject.getJsonString("status").getString();
