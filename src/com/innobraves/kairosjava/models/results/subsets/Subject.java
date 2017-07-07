@@ -12,6 +12,14 @@ public class Subject {
 
     private Subject(){}
 
+    public String getFaceId() {
+        return faceId;
+    }
+
+    public long getEnrollmentTimestamp() {
+        return enrollmentTimestamp;
+    }
+
     public static Subject create(JsonObject raw){
         Subject sub = new Subject();
         sub.faceId = raw.getJsonString("face_id").getString();
