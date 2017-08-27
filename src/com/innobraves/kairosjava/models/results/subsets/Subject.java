@@ -23,7 +23,7 @@ public class Subject {
     public static Subject create(JsonObject raw){
         Subject sub = new Subject();
         sub.faceId = raw.getJsonString("face_id").getString();
-        sub.enrollmentTimestamp = raw.getJsonNumber("enrollment_timestamp").longValue();
+        sub.enrollmentTimestamp = Long.parseLong(raw.getJsonString("enrollment_timestamp").getString());
         return sub;
     }
 

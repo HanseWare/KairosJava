@@ -23,7 +23,7 @@ public class GalleryViewSubjectRequest extends Request {
 
     @Override
     public HttpRequestBase getRequest() throws UnsupportedEncodingException {
-        HttpPost request = new HttpPost(Request.BASE_URL + "/gallery/remove");
+        HttpPost request = new HttpPost(Request.BASE_URL + "/gallery/view_subject");
         JsonObjectBuilder bodyBuilder = Json.createObjectBuilder()
                 .add("subject_id", this.subjectId)
                 .add("gallery_name", this.galleryName);

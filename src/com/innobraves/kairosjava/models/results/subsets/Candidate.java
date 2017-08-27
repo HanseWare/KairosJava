@@ -29,7 +29,7 @@ public class Candidate {
         Candidate cand = new Candidate();
         cand.subjectId = raw.getJsonString("subject_id").getString();
         cand.confidence = raw.getJsonNumber("confidence").doubleValue();
-        cand.enrollmentTimestamp = raw.getJsonNumber("enrollment_timestamp").longValue();
+        cand.enrollmentTimestamp = Long.parseLong(raw.getJsonString("enrollment_timestamp").getString());
         return cand;
     }
 

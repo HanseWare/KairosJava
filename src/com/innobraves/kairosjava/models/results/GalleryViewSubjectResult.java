@@ -48,7 +48,7 @@ public class GalleryViewSubjectResult extends Result {
         }
         this.subjects = new LinkedList<>();
         this.status = responseObject.getJsonString("status").getString();
-        responseObject.getJsonArray("message").getValuesAs(JsonObject.class).forEach(o -> this.subjects.add(Subject.create(o)));
+        responseObject.getJsonArray("face_ids").getValuesAs(JsonObject.class).forEach(o -> this.subjects.add(Subject.create(o)));
     }
 
     @Override

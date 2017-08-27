@@ -76,7 +76,7 @@ public class Transaction {
         trans.topLeftX = raw.getJsonNumber("topLeftX").intValue();
         trans.topLeftY = raw.getJsonNumber("topLeftY").intValue();
         trans.galleryName = raw.getJsonString("gallery_name").getString();
-        trans.timestamp = raw.getJsonNumber("timestamp").longValue();
+        trans.timestamp = Long.parseLong(raw.getJsonString("timestamp").getString());
         trans.height = raw.getJsonNumber("height").intValue();
         trans.width = raw.getJsonNumber("width").intValue();
         trans.quality = raw.getJsonNumber("quality").doubleValue();
