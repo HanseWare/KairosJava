@@ -76,14 +76,22 @@ public class Transaction {
         trans.topLeftX = raw.getJsonNumber("topLeftX").intValue();
         trans.topLeftY = raw.getJsonNumber("topLeftY").intValue();
         trans.galleryName = raw.getJsonString("gallery_name").getString();
-        trans.timestamp = Long.parseLong(raw.getJsonString("timestamp").getString());
+        if(raw.containsKey("timestamp")){
+            trans.timestamp = Long.parseLong(raw.getJsonString("timestamp").getString());
+        }else{
+            trans.timestamp = -1;//-1 to indicate not existing
+        }
         trans.height = raw.getJsonNumber("height").intValue();
         trans.width = raw.getJsonNumber("width").intValue();
         trans.quality = raw.getJsonNumber("quality").doubleValue();
         trans.confidence = raw.getJsonNumber("confidence").doubleValue();
         trans.subjectId = raw.getJsonString("subject_id").getString();
         trans.eyeDistance = raw.getJsonNumber("eyeDistance").intValue();
-        trans.faceId = raw.getJsonNumber("face_id").intValue();
+        if(raw.containsKey("face_id")){
+            trans.faceId = raw.getJsonNumber("face_id").intValue();
+        }else{
+            trans.faceId = -1;//-1 to indicate not existing
+        }
         return trans;
     }
 
