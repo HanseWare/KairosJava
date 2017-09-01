@@ -28,7 +28,9 @@ public class RecognizedImage {
     public static RecognizedImage create(JsonObject raw) {
         RecognizedImage img = new RecognizedImage();
         img.transaction = Transaction.create(raw.getJsonObject("transaction"));
-        raw.getJsonArray("candidates").getValuesAs(JsonObject.class).forEach(c -> img.candidates.add(Candidate.create(c)));
+        if(raw.containsKey("candidates")){
+            raw.getJsonArray("candidates").getValuesAs(JsonObject.class).forEach(c -> img.candidates.add(Candidate.create(c)));
+        }
         return img;
     }
 
