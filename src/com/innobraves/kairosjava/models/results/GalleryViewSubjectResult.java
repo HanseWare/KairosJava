@@ -20,14 +20,26 @@ import java.util.List;
 public class GalleryViewSubjectResult extends Result {
     private String status;
     private List<Subject> subjects;
+
+    /**
+     * Constructor to be used in case of an error while executing the request
+     * @param error Error received
+     */
     public GalleryViewSubjectResult(Error error) {
         super(error);
     }
 
+    /**
+     * Constructor handling a HttpResponse after successful receiving a response
+     * @param response HTTP response received
+     * @throws IOException
+     */
     public GalleryViewSubjectResult(HttpResponse response) throws IOException {
         super(response);
     }
-
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public String getStatus() {
         return status;
     }
@@ -35,7 +47,9 @@ public class GalleryViewSubjectResult extends Result {
     public List<Subject> getSubjects() {
         return subjects;
     }
-
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @Override
     void parseResponse(HttpResponse response) throws IOException {
         HttpEntity entity = response.getEntity();

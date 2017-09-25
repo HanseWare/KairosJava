@@ -1,7 +1,8 @@
 package com.innobraves.kairosjava.models;
 
 /**
- * @author Hex-3-En
+ * Enumerator holding all error messages an corresponding error codes found in Kairos API description
+ * @author P. Willnow
  * @version 0.0.1
  */
 public enum Error {
@@ -125,6 +126,13 @@ public enum Error {
     private String message;
     private String description;
 
+    /**
+     * Private constructor to initialize enumerators
+     * @param errorCode Kairos error code as integer
+     * @param httpCode HTTP standard code as integer
+     * @param message short message as found in api description
+     * @param description long message as found in api description
+     */
     Error(int errorCode, int httpCode, String message, String description){
         this.errorCode = errorCode;
         this.httpCode = httpCode;
@@ -132,18 +140,34 @@ public enum Error {
         this.description = description;
     }
 
+    /**
+     * Getter for HTTP code
+     * @return http code as integer
+     */
     public int getHttpCode() {
         return httpCode;
     }
 
+    /**
+     * Getter for error code
+     * @return error code as integer
+     */
     public int getErrorCode() {
         return errorCode;
     }
 
+    /**
+     * Getter for error short message
+     * @return message as String
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * Getter for error long message
+     * @return message as String
+     */
     public String getDescription() {
         return description;
     }
@@ -158,6 +182,11 @@ public enum Error {
                 '}';
     }
 
+    /**
+     * Globally available method to find enumerator by given error code
+     * @param errCode error code as integer
+     * @return ErrorCode reference
+     */
     public static Error getByErrCode(int errCode){
         for(Error e : Error.values()){
             if(e.errorCode == errCode)return e;
@@ -165,6 +194,11 @@ public enum Error {
         return null;
     }
 
+    /**
+     * Globally available method to find enumerator by given error code
+     * @param httpCode error code as integer
+     * @return ErrorCode reference
+     */
     public static Error getByHttpCode(int httpCode){
         for(Error e : Error.values()){
             if(e.httpCode == httpCode)return e;

@@ -20,8 +20,14 @@ public class Transaction {
     private int eyeDistance;
     private int faceId;
 
+    /**
+     * Empty private constructor, so it can't be called from outside the class.
+     */
     private Transaction(){}
 
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public boolean isSuccess() {
         return success;
     }
@@ -69,7 +75,15 @@ public class Transaction {
     public int getFaceId() {
         return faceId;
     }
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
 
+    /**
+     * Creator method, taking raw JSON data and filling fields with it
+     * @param raw raw JSON data with result data
+     * @return instance of this class filled with data
+     */
     public static Transaction create(JsonObject raw){
         Transaction trans = new Transaction();
         trans.success = raw.getJsonString("status").getString().equals("success");

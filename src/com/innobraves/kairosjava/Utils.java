@@ -6,7 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * @author Hex-3-En
+ * Util class holding handy methods to be used with the library
+ * @author P. Willnow
  * @version 0.0.1
  */
 public final class Utils {

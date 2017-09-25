@@ -3,7 +3,8 @@ package com.innobraves.kairosjava.models.results.subsets;
 import javax.json.JsonObject;
 
 /**
- * @author Hex-3-En
+ * Representation of detected attributes
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class Attributes {
@@ -17,8 +18,13 @@ public class Attributes {
     private double white;
     private String glasses;
 
+    /**
+     * Empty private constructor, so it can't be called from outside the class.
+     */
     private Attributes(){}
-
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public String getLips() {
         return lips;
     }
@@ -54,7 +60,15 @@ public class Attributes {
     public String getGlasses() {
         return glasses;
     }
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
 
+    /**
+     * Creator method, taking raw JSON data and filling fields with it
+     * @param raw raw JSON data with result data
+     * @return instance of this class filled with data
+     */
     public static Attributes create(JsonObject raw){
         Attributes att = new Attributes();
         att.lips = raw.getJsonString("lips").getString();

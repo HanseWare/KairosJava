@@ -12,13 +12,19 @@ import org.apache.http.message.BasicHeader;
 import java.io.IOException;
 
 /**
- * @author Hex-3-En
+ * Client class synchronously handling HTTP requests to API based on Recognition-Interface
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class RecognitionClient implements Recognition {
     private HttpClient client;
     private Header[] headers;
 
+    /**
+     * Constructor initializing HTTP client and basic headers with credentials
+     * @param appID AppID as String
+     * @param appKey AppKey as String
+     */
     public RecognitionClient(String appID, String appKey){
         this.client =(new ApacheHttpTransport.Builder()).build().getHttpClient();
         headers = new Header[3];

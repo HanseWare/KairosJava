@@ -10,7 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 /**
- * @author Hex-3-En
+ * Request for the Verify operation.
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class VerifyRequest extends Request {
@@ -18,12 +19,24 @@ public class VerifyRequest extends Request {
     private String galleryName;
     private String subjectId;
 
+    /**
+     * Constructor taking required parameters
+     * @param imageURL Publicly accessible URL.
+     * @param galleryName Defined by you. Is used to identify the gallery.
+     * @param subjectId Defined by you. Is used as an identifier for the face.
+     */
     public VerifyRequest(String imageURL, String galleryName, String subjectId) {
         this.image = imageURL;
         this.galleryName = galleryName;
         this.subjectId = subjectId;
     }
 
+    /**
+     * Constructor taking required parameters
+     * @param imageBytes Base64 encoded photo.
+     * @param galleryName Defined by you. Is used to identify the gallery.
+     * @param subjectId Defined by you. Is used as an identifier for the face.
+     */
     public VerifyRequest(byte[] imageBytes, String galleryName, String subjectId) {
         this.image = Base64.getEncoder().encodeToString(imageBytes);
         this.galleryName = galleryName;

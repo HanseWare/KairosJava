@@ -14,20 +14,33 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Hex-3-En
+ * Representation of a view gallery result
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class GalleryViewResult extends Result {
     private String status;
     private List<String> subjectIds;
+
+    /**
+     * Constructor to be used in case of an error while executing the request
+     * @param error Error received
+     */
     public GalleryViewResult(Error error) {
         super(error);
     }
 
+    /**
+     * Constructor handling a HttpResponse after successful receiving a response
+     * @param response HTTP response received
+     * @throws IOException
+     */
     public GalleryViewResult(HttpResponse response) throws IOException {
         super(response);
     }
-
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public String getStatus() {
         return status;
     }
@@ -35,7 +48,9 @@ public class GalleryViewResult extends Result {
     public List<String> getSubjectIds() {
         return subjectIds;
     }
-
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @Override
     void parseResponse(HttpResponse response) throws IOException {
         HttpEntity entity = response.getEntity();

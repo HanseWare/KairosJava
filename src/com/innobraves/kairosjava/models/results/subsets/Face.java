@@ -15,6 +15,7 @@ public class Face {
     private int leftEyeCenterY;
     private int rightEyeCenterX;
     private int rightEyeCenterY;
+    private int eyeDistance;
     private int yaw;
     private int pitch;
     private int roll;
@@ -25,8 +26,14 @@ public class Face {
     private int faceId;
     private Attributes attributes;
 
+    /**
+     * Empty private constructor, so it can't be called from outside the class.
+     */
     private Face(){}
 
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public int getTopLeftX() {
         return topLeftX;
     }
@@ -58,6 +65,8 @@ public class Face {
     public int getRightEyeCenterY() {
         return rightEyeCenterY;
     }
+
+    public int getEyeDistance(){ return eyeDistance; }
 
     public int getYaw() {
         return yaw;
@@ -94,7 +103,15 @@ public class Face {
     public Attributes getAttributes() {
         return attributes;
     }
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
 
+    /**
+     * Creator method, taking raw JSON data and filling fields with it
+     * @param raw raw JSON data with result data
+     * @return instance of this class filled with data
+     */
     public static Face create(JsonObject raw){
         Face face = new Face();
         face.topLeftX = raw.getJsonNumber("topLeftX").intValue();
@@ -105,6 +122,7 @@ public class Face {
         face.leftEyeCenterY = raw.getJsonNumber("leftEyeCenterY").intValue();
         face.rightEyeCenterX = raw.getJsonNumber("rightEyeCenterX").intValue();
         face.rightEyeCenterY = raw.getJsonNumber("rightEyeCenterY").intValue();
+        face.eyeDistance = raw.getJsonNumber("eyeDistance").intValue();
         face.yaw = raw.getJsonNumber("yaw").intValue();
         face.pitch = raw.getJsonNumber("pitch").intValue();
         face.roll = raw.getJsonNumber("roll").intValue();
@@ -129,6 +147,7 @@ public class Face {
                 "leftEyeCenterY:\t" + leftEyeCenterY + "\n" +
                 "rightEyeCenterX:\t" + rightEyeCenterX + "\n" +
                 "rightEyeCenterY:\t" + rightEyeCenterY + "\n" +
+                "eyeDistance:\t" + eyeDistance + "\n" +
                 "yaw:\t" + yaw + "\n" +
                 "pitch:\t" + pitch + "\n" +
                 "roll:\t" + roll + "\n" +

@@ -12,23 +12,38 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author Hex-3-En
+ * Representation of a verification result
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class VerifyResult extends Result {
     private Transaction transaction;
+
+    /**
+     * Constructor to be used in case of an error while executing the request
+     * @param error Error received
+     */
     public VerifyResult(Error error) {
         super(error);
     }
 
+    /**
+     * Constructor handling a HttpResponse after successful receiving a response
+     * @param response HTTP response received
+     * @throws IOException
+     */
     public VerifyResult(HttpResponse response) throws IOException {
         super(response);
     }
-
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public Transaction getTransaction() {
         return transaction;
     }
-
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @Override
     void parseResponse(HttpResponse response) throws IOException {
         HttpEntity entity = response.getEntity();

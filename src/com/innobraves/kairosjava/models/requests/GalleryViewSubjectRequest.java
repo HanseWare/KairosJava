@@ -9,13 +9,19 @@ import javax.json.JsonObjectBuilder;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @author Hex-3-En
+ * Request for the GalleryViewSubject operation.
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class GalleryViewSubjectRequest extends Request {
     private String galleryName;
     private String subjectId;
 
+    /**
+     * Constructor taking required parameters
+     * @param galleryName Defined by you. Is used to identify the gallery.
+     * @param subjectId Defined by you. Is used as an identifier for the face.
+     */
     public GalleryViewSubjectRequest(String galleryName, String subjectId){
         this.galleryName = galleryName;
         this.subjectId = subjectId;

@@ -7,7 +7,9 @@ import org.apache.http.entity.StringEntity;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @author Hex-3-En
+ * Request for the GalleryListAll operation.
+ * Does only need getRequest method, as it doesn't have parameters
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class GalleryListAllRequest extends Request {

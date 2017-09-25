@@ -9,7 +9,8 @@ import javax.json.JsonObjectBuilder;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @author Hex-3-En
+ * Request for the GalleryRemoveSubject operation.
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class GalleryRemoveSubjectRequest extends Request {
@@ -17,11 +18,21 @@ public class GalleryRemoveSubjectRequest extends Request {
     private String subjectId;
     private String faceId;
 
+    /**
+     * Constructor taking required parameters
+     * @param galleryName Defined by you. Is used to identify the gallery.
+     * @param subjectId Defined by you. Is used as an identifier for the face.
+     */
     public GalleryRemoveSubjectRequest(String galleryName, String subjectId){
         this.galleryName = galleryName;
         this.subjectId = subjectId;
     }
 
+    /**
+     * Method for adding optional parameter to request
+     * @param face_id A unique ID from the enroll output when an image has been enrolled.
+     * @return object instance for method chaining
+     */
     public GalleryRemoveSubjectRequest withFaceId(String face_id){
         this. faceId = face_id;
         return this;

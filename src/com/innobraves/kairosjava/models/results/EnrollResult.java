@@ -14,21 +14,33 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Hex-3-En
+ * Representation of an enrollment result
+ * @author P. Willnow
  * @version 0.0.1
  */
 public class EnrollResult extends Result{
     private String faceId;
     private List<EnrolledImage> enrolledImages;
 
+    /**
+     * Constructor to be used in case of an error while executing the request
+     * @param error Error received
+     */
     public EnrollResult(Error error) {
         super(error);
     }
 
+    /**
+     * Constructor handling a HttpResponse after successful receiving a response
+     * @param response HTTP response received
+     * @throws IOException
+     */
     public EnrollResult(HttpResponse response) throws IOException {
         super(response);
     }
-
+//--------------------------------------------------------------------------------------------------------
+//---------------------------Getters and Setters for all fields in this class-----------------------------
+//--------------------------------------------------------------------------------------------------------
     public String getFaceId() {
         return faceId;
     }
@@ -36,7 +48,9 @@ public class EnrollResult extends Result{
     public List<EnrolledImage> getEnrolledImages() {
         return enrolledImages;
     }
-
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------End of Getters and Setters----------------------------------------
+//--------------------------------------------------------------------------------------------------------
     @Override
     void parseResponse(HttpResponse response) throws IOException {
         HttpEntity entity = response.getEntity();
